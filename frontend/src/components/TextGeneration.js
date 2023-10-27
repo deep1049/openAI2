@@ -21,12 +21,13 @@ function TextGeneration() {
     const newMessages = [...messages, { role: "user", content: inputMessage }];
     setMessages(newMessages);
     setInputMessage("");
-
-    // Send the user message to the backend for text generation
     try {
-      const response = await axios.post("http://localhost:8080/text", {
-        messages: newMessages,
-      });
+      const response = await axios.post(
+        "https://tiny-calf-shrug.cyclic.app/text",
+        {
+          messages: newMessages,
+        }
+      );
       setMessages([
         ...newMessages,
         { role: "assistant", content: response.data.message.content },

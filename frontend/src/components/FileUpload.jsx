@@ -36,7 +36,7 @@ const FileUpload = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/summarization",
+        "https://tiny-calf-shrug.cyclic.app/summarization",
         formData,
         {
           headers: {

@@ -28,10 +28,13 @@ const Feelings = () => {
   const handleConvert = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.post("http://localhost:8080/emotion", {
-        prompt: code,
-        language: selectedLanguage,
-      });
+      const response = await axios.post(
+        "https://tiny-calf-shrug.cyclic.app/emotion",
+        {
+          prompt: code,
+          language: selectedLanguage,
+        }
+      );
       console.log("Response from API:", response);
       setConvertedCode(response.data.result.message.content);
     } catch (error) {
